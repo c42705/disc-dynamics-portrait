@@ -1,0 +1,117 @@
+
+{
+  "app": {
+    "title": "DISC Personality Assessment",
+    "description": "Discover your behavioral style and communication preferences",
+    "nav": {
+      "home": "Home",
+      "test": "Take Test",
+      "results": "Results"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Discover Your DISC Profile",
+      "subtitle": "Understand your behavioral style and improve your relationships",
+      "startButton": "Start Assessment"
+    },
+    "about": {
+      "title": "What is DISC?",
+      "description": "DISC is a behavioral assessment tool based on the DISC theory of psychologist William Marston. It focuses on four personality traits: Dominance, Influence, Steadiness, and Compliance."
+    },
+    "features": {
+      "title": "Features",
+      "items": {
+        "1": "Comprehensive personality assessment",
+        "2": "Detailed results analysis",
+        "3": "Downloadable certificate",
+        "4": "Relationship insights"
+      }
+    }
+  },
+  "test": {
+    "intro": {
+      "title": "DISC Assessment",
+      "description": "This assessment consists of questions about your behavior in various situations. There are no right or wrong answers - just select the option that best describes you.",
+      "instructions": "Please answer honestly for the most accurate results.",
+      "nameLabel": "Your Name",
+      "namePlaceholder": "Enter your full name",
+      "startButton": "Begin Assessment",
+      "welcome": "Welcome",
+      "lets_discover": "Let's discover your DISC profile"
+    },
+    "question": {
+      "prefix": "Question",
+      "of": "of",
+      "nextButton": "Next",
+      "previousButton": "Previous",
+      "completeButton": "Complete Test"
+    },
+    "options": {
+      "strongly_disagree": "Strongly Disagree",
+      "disagree": "Disagree",
+      "agree": "Agree",
+      "strongly_agree": "Strongly Agree"
+    },
+    "progress": {
+      "complete": "Complete"
+    },
+    "errors": {
+      "required": "Please answer this question before continuing",
+      "name_required": "Please enter your name to start the test"
+    },
+    "completion_message": "Test completed! Generating your results..."
+  },
+  "results": {
+    "title": "Your DISC Profile",
+    "summary": "Based on your responses, we've identified your behavioral style. Here's how you relate to others and approach situations.",
+    "profileSummary": "Profile Summary",
+    "primaryTraits": "Primary Traits",
+    "primaryTrait": "Primary trait",
+    "secondaryTrait": "Secondary trait",
+    "keyInsight": "Key Insight",
+    "discProfile": "DISC Profile",
+    "relationshipWithOthers": "Relationship with Others",
+    "dimension": "Dimension",
+    "score": "Score",
+    "relationship": "Relationship with Others",
+    "and": "and",
+    "certificate": {
+      "title": "Certificate",
+      "description": "Here's your personalized DISC certificate. You can download it as a JPEG file to share or keep for your records.",
+      "downloadButton": "Download Certificate",
+      "shareButton": "Share Results"
+    },
+    "actions": {
+      "home": "Home",
+      "retake": "Retake Test"
+    },
+    "dimensions": {
+      "dominance": "Dominance",
+      "influence": "Influence",
+      "steadiness": "Steadiness",
+      "compliance": "Compliance"
+    }
+  },
+  "certificate": {
+    "title": "DISC Profile Certificate",
+    "subtitle": "Personality Assessment Results",
+    "certifies": "This certifies that",
+    "completed": "Completed the DISC personality assessment on",
+    "primaryTraits": "Primary personality traits",
+    "keyInsight": "Key Insight",
+    "disclaimer": "This certificate represents results from a self-assessment tool and should be considered in context."
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode"
+  },
+  "language": {
+    "en": "English",
+    "es": "Spanish"
+  },
+  "errors": {
+    "language_unavailable": "Language resources unavailable. Defaulting to English.",
+    "loading_failed": "Failed to load content. Please try again."
+  }
+}

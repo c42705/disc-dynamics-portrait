@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 import { CertificateData } from '@/types/disc';
 import { formatDate } from '@/utils/certificateGenerator';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface CertificateProps {
   data: CertificateData;
@@ -11,6 +12,7 @@ interface CertificateProps {
 
 const Certificate = forwardRef<HTMLDivElement, CertificateProps>(
   ({ data, className }, ref) => {
+    const { t } = useLanguage();
     const { userName, date, scores, insights } = data;
     const formattedDate = date || formatDate(new Date());
 
@@ -22,7 +24,7 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(
     const secondaryTrait = sortedInsights[1];
 
     // Generate summary based on primary and secondary traits
-    const summary = `${primaryTrait.dimension} (${primaryTrait.score}%) and ${secondaryTrait.dimension} (${secondaryTrait.score}%)`;
+    const summary = `${primaryTrait.dimension} (${primaryTrait.score}%) ${t('results.and')} ${secondaryTrait.dimension} (${secondaryTrait.score}%)`;
 
     return (
       <div
@@ -40,8 +42,8 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(
         <div className="relative p-8 h-full flex flex-col">
           {/* Header */}
           <div className="text-center mb-6">
-            <h1 className="text-3xl font-bold tracking-tight mb-1">DISC Profile Certificate</h1>
-            <p className="text-muted-foreground">Personality Assessment Results</p>
+            <h1 className="text-3xl font-bold tracking-tight mb-1">{t('certificate.title')}</h1>
+            <p className="text-muted-foreground">{t('certificate.subtitle')}</p>
           </div>
           
           {/* Certificate seal/emblem */}
@@ -55,16 +57,16 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(
 
           {/* Name and date */}
           <div className="mb-8 text-center">
-            <p className="text-muted-foreground text-sm mb-1">This certifies that</p>
+            <p className="text-muted-foreground text-sm mb-1">{t('certificate.certifies')}</p>
             <h2 className="text-2xl font-bold text-primary mb-1">{userName}</h2>
-            <p className="text-muted-foreground text-sm">Completed the DISC personality assessment on {formattedDate}</p>
+            <p className="text-muted-foreground text-sm">{t('certificate.completed')} {formattedDate}</p>
           </div>
           
           {/* Main content */}
           <div className="flex-1 flex flex-col">
             {/* Summary */}
             <div className="mb-6 text-center">
-              <p className="text-muted-foreground text-sm">Primary personality traits</p>
+              <p className="text-muted-foreground text-sm">{t('certificate.primaryTraits')}</p>
               <p className="text-lg font-medium">{summary}</p>
             </div>
             
@@ -76,7 +78,7 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(
                     <span className="text-disc-dominance font-medium">D</span>
                   </div>
                   <div>
-                    <h3 className="font-medium">Dominance</h3>
+                    <h3 className="font-medium">{t('results.dimensions.dominance')}</h3>
                     <div className="w-full bg-muted h-2 rounded-full">
                       <div 
                         className="bg-disc-dominance h-2 rounded-full"
@@ -94,7 +96,7 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(
                     <span className="text-disc-influence font-medium">I</span>
                   </div>
                   <div>
-                    <h3 className="font-medium">Influence</h3>
+                    <h3 className="font-medium">{t('results.dimensions.influence')}</h3>
                     <div className="w-full bg-muted h-2 rounded-full">
                       <div 
                         className="bg-disc-influence h-2 rounded-full"
@@ -112,7 +114,7 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(
                     <span className="text-disc-steadiness font-medium">S</span>
                   </div>
                   <div>
-                    <h3 className="font-medium">Steadiness</h3>
+                    <h3 className="font-medium">{t('results.dimensions.steadiness')}</h3>
                     <div className="w-full bg-muted h-2 rounded-full">
                       <div 
                         className="bg-disc-steadiness h-2 rounded-full"
@@ -130,7 +132,7 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(
                     <span className="text-disc-compliance font-medium">C</span>
                   </div>
                   <div>
-                    <h3 className="font-medium">Compliance</h3>
+                    <h3 className="font-medium">{t('results.dimensions.compliance')}</h3>
                     <div className="w-full bg-muted h-2 rounded-full">
                       <div 
                         className="bg-disc-compliance h-2 rounded-full"
@@ -145,14 +147,14 @@ const Certificate = forwardRef<HTMLDivElement, CertificateProps>(
             
             {/* Top insight */}
             <div className="bg-card p-4 rounded-lg border mb-4">
-              <h3 className="font-medium mb-2">Key Insight</h3>
+              <h3 className="font-medium mb-2">{t('certificate.keyInsight')}</h3>
               <p className="text-sm text-muted-foreground">{primaryTrait.description}</p>
             </div>
           </div>
           
           {/* Footer */}
           <div className="mt-auto pt-4 border-t text-center text-sm text-muted-foreground">
-            <p>This certificate represents results from a self-assessment tool and should be considered in context.</p>
+            <p>{t('certificate.disclaimer')}</p>
           </div>
         </div>
       </div>

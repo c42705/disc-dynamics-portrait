@@ -9,8 +9,10 @@ import ProgressBar from '@/components/ProgressBar';
 import Question from '@/components/Question';
 import TestIntro from '@/components/TestIntro';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const TestPage = () => {
+  const { t } = useLanguage();
   const [userName, setUserName] = useState('');
   const [testStarted, setTestStarted] = useState(false);
   const [testCompleted, setTestCompleted] = useState(false);
@@ -62,7 +64,7 @@ const TestPage = () => {
   const handleStartTest = (name: string) => {
     setUserName(name);
     setTestStarted(true);
-    toast(`Welcome, ${name}! Let's discover your DISC profile.`);
+    toast(`${t('test.intro.welcome')}, ${name}! ${t('test.intro.lets_discover')}`);
   };
 
   const handleSelectAnswer = (value: number) => {
@@ -76,7 +78,7 @@ const TestPage = () => {
 
   const handleNext = () => {
     if (answers[currentQuestionIndex].value === 0) {
-      toast.error("Please select an answer before continuing");
+      toast.error(t('test.errors.required'));
       return;
     }
     
@@ -98,7 +100,7 @@ const TestPage = () => {
     const unansweredQuestions = answers.filter(a => a.value === 0);
     
     if (unansweredQuestions.length > 0) {
-      toast.error("Please answer all questions before viewing results");
+      toast.error(t('test.errors.required'));
       return;
     }
     
@@ -106,7 +108,7 @@ const TestPage = () => {
     localStorage.setItem('discTestAnswers', JSON.stringify(answers));
     localStorage.setItem('discUserName', userName);
     
-    toast.success("Test completed! Generating your results...");
+    toast.success(t('test.completion_message'));
     
     // Navigate to results page
     navigate('/results');
@@ -121,7 +123,7 @@ const TestPage = () => {
 
   return (
     <div className="container max-w-3xl mx-auto px-4 py-10 animate-fade-in">
-      <div className="mb-8">
+      <div className="mb-10">
         <ProgressBar 
           currentStep={currentQuestionIndex + 1} 
           totalSteps={questions.length}
@@ -131,7 +133,7 @@ const TestPage = () => {
       <div className="bg-card rounded-lg border shadow-sm p-6 mb-6">
         <div className="mb-3 flex items-center justify-between">
           <h2 className="text-sm font-medium text-muted-foreground">
-            Question {currentQuestionIndex + 1} of {questions.length}
+            {t('test.question.prefix')} {currentQuestionIndex + 1} {t('test.question.of')} {questions.length}
           </h2>
         </div>
         
@@ -153,7 +155,7 @@ const TestPage = () => {
           className="btn-hover"
         >
           <ChevronLeft className="mr-2 h-4 w-4" />
-          Previous
+          {t('test.question.previousButton')}
         </Button>
         
         <Button
@@ -162,7 +164,7 @@ const TestPage = () => {
           disabled={answers[currentQuestionIndex]?.value === 0}
           className="btn-hover"
         >
-          {isLastQuestion ? 'Complete Test' : 'Next'}
+          {isLastQuestion ? t('test.question.completeButton') : t('test.question.nextButton')}
           <ChevronRight className="ml-2 h-4 w-4" />
         </Button>
       </div>

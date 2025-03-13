@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Option, Question as QuestionType } from '@/types/disc';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface QuestionProps {
   question: QuestionType;
@@ -12,6 +13,7 @@ interface QuestionProps {
 }
 
 const Question = ({ question, options, selectedValue, onSelect, className }: QuestionProps) => {
+  const { t } = useLanguage();
   const [selectedOption, setSelectedOption] = useState<number>(selectedValue);
   const [isAnimating, setIsAnimating] = useState(true);
 
@@ -28,6 +30,13 @@ const Question = ({ question, options, selectedValue, onSelect, className }: Que
   const handleSelect = (value: number) => {
     setSelectedOption(value);
     onSelect(value);
+  };
+  
+  // Translate option labels
+  const translateOption = (option: Option) => {
+    const key = option.label.toLowerCase().replace(/\s+/g, '_');
+    const translationKey = `test.options.${key}`;
+    return t(translationKey) || option.label;
   };
 
   return (
@@ -69,7 +78,7 @@ const Question = ({ question, options, selectedValue, onSelect, className }: Que
                 ? "text-foreground font-medium" 
                 : "text-muted-foreground"
             )}>
-              {option.label}
+              {translateOption(option)}
             </span>
           </div>
         ))}

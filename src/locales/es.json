@@ -1,0 +1,117 @@
+
+{
+  "app": {
+    "title": "Evaluación de Personalidad DISC",
+    "description": "Descubre tu estilo de comportamiento y preferencias de comunicación",
+    "nav": {
+      "home": "Inicio",
+      "test": "Realizar Prueba",
+      "results": "Resultados"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Descubre Tu Perfil DISC",
+      "subtitle": "Comprende tu estilo de comportamiento y mejora tus relaciones",
+      "startButton": "Comenzar Evaluación"
+    },
+    "about": {
+      "title": "¿Qué es DISC?",
+      "description": "DISC es una herramienta de evaluación del comportamiento basada en la teoría DISC del psicólogo William Marston. Se centra en cuatro rasgos de personalidad: Dominancia, Influencia, Estabilidad y Conformidad."
+    },
+    "features": {
+      "title": "Características",
+      "items": {
+        "1": "Evaluación comprensiva de personalidad",
+        "2": "Análisis detallado de resultados",
+        "3": "Certificado descargable",
+        "4": "Perspectivas de relaciones"
+      }
+    }
+  },
+  "test": {
+    "intro": {
+      "title": "Evaluación DISC",
+      "description": "Esta evaluación consiste en preguntas sobre tu comportamiento en diversas situaciones. No hay respuestas correctas o incorrectas, simplemente selecciona la opción que mejor te describa.",
+      "instructions": "Por favor responde honestamente para obtener resultados más precisos.",
+      "nameLabel": "Tu Nombre",
+      "namePlaceholder": "Ingresa tu nombre completo",
+      "startButton": "Comenzar Evaluación",
+      "welcome": "Bienvenido",
+      "lets_discover": "Descubramos tu perfil DISC"
+    },
+    "question": {
+      "prefix": "Pregunta",
+      "of": "de",
+      "nextButton": "Siguiente",
+      "previousButton": "Anterior",
+      "completeButton": "Completar Prueba"
+    },
+    "options": {
+      "strongly_disagree": "Totalmente en Desacuerdo",
+      "disagree": "En Desacuerdo",
+      "agree": "De Acuerdo",
+      "strongly_agree": "Totalmente de Acuerdo"
+    },
+    "progress": {
+      "complete": "Completo"
+    },
+    "errors": {
+      "required": "Por favor responde esta pregunta antes de continuar",
+      "name_required": "Por favor ingresa tu nombre para comenzar la prueba"
+    },
+    "completion_message": "¡Prueba completada! Generando tus resultados..."
+  },
+  "results": {
+    "title": "Tu Perfil DISC",
+    "summary": "Basado en tus respuestas, hemos identificado tu estilo de comportamiento. Aquí se muestra cómo te relacionas con otros y enfrentas situaciones.",
+    "profileSummary": "Resumen del Perfil",
+    "primaryTraits": "Rasgos Principales",
+    "primaryTrait": "Rasgo primario",
+    "secondaryTrait": "Rasgo secundario",
+    "keyInsight": "Perspectiva Clave",
+    "discProfile": "Perfil DISC",
+    "relationshipWithOthers": "Relación con Otros",
+    "dimension": "Dimensión",
+    "score": "Puntuación",
+    "relationship": "Relación con Otros",
+    "and": "y",
+    "certificate": {
+      "title": "Certificado",
+      "description": "Aquí está tu certificado DISC personalizado. Puedes descargarlo como archivo JPEG para compartir o guardar para tus registros.",
+      "downloadButton": "Descargar Certificado",
+      "shareButton": "Compartir Resultados"
+    },
+    "actions": {
+      "home": "Inicio",
+      "retake": "Volver a Realizar"
+    },
+    "dimensions": {
+      "dominance": "Dominancia",
+      "influence": "Influencia",
+      "steadiness": "Estabilidad",
+      "compliance": "Conformidad"
+    }
+  },
+  "certificate": {
+    "title": "Certificado de Perfil DISC",
+    "subtitle": "Resultados de Evaluación de Personalidad",
+    "certifies": "Esto certifica que",
+    "completed": "Completó la evaluación de personalidad DISC el",
+    "primaryTraits": "Rasgos de personalidad principales",
+    "keyInsight": "Perspectiva Clave",
+    "disclaimer": "Este certificado representa resultados de una herramienta de autoevaluación y debe considerarse en contexto."
+  },
+  "theme": {
+    "light": "Modo Claro",
+    "dark": "Modo Oscuro"
+  },
+  "language": {
+    "en": "Inglés",
+    "es": "Español"
+  },
+  "errors": {
+    "language_unavailable": "Recursos de idioma no disponibles. Usando inglés por defecto.",
+    "loading_failed": "Error al cargar el contenido. Por favor intenta de nuevo."
+  }
+}
