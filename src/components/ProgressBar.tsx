@@ -12,11 +12,11 @@ const ProgressBar = ({ currentStep, totalSteps, className }: ProgressBarProps) =
 
   return (
     <div className={cn("w-full", className)}>
-      <div className="flex justify-between text-xs text-muted-foreground mb-1">
+      <div className="flex justify-between text-xs text-muted-foreground mb-2">
         <span>{progress}% Complete</span>
         <span>{currentStep} of {totalSteps}</span>
       </div>
-      <div className="h-2 w-full bg-secondary rounded-full overflow-hidden transition-all duration-500">
+      <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
         <div 
           className="h-full bg-primary rounded-full transition-all duration-500 ease-in-out"
           style={{ width: `${progress}%` }}
