@@ -1,4 +1,5 @@
 
+import html2canvas from 'html2canvas';
 import { CertificateData } from '../types/disc';
 
 export const generateCertificate = async (
