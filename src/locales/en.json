@@ -110,6 +110,114 @@
     "en": "English",
     "es": "Spanish"
   },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "name": "Name",
+    "namePlaceholder": "Enter your full name",
+    "loginOrRegister": "Login / Register",
+    "welcomeTitle": "Welcome to DISC Assessment",
+    "welcomeDescription": "Login or create an account to save your results and access them anytime.",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "validation": {
+      "allFieldsRequired": "All fields are required",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "invalidEmail": "Please enter a valid email address",
+      "weakPassword": "Password should be at least 6 characters"
+    },
+    "account": "Account"
+  },
+  "history": {
+    "title": "Your Assessment History",
+    "subtitle": "View and compare your previous DISC assessments",
+    "noResults": "You haven't taken any assessments yet.",
+    "takeTestButton": "Take an Assessment",
+    "date": "Date",
+    "headers": {
+      "date": "Date",
+      "dominance": "Dominance",
+      "influence": "Influence",
+      "steadiness": "Steadiness",
+      "compliance": "Compliance",
+      "actions": "Actions"
+    },
+    "viewDetails": "View Details",
+    "downloadCertificate": "Download Certificate",
+    "deleteResult": "Delete",
+    "confirmDelete": "Are you sure you want to delete this result?",
+    "deleteSuccess": "Result deleted successfully"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "subtitle": "Manage system settings and view user data",
+    "accessDenied": "Access Denied. This page is only available to administrators.",
+    "googleSheet": {
+      "title": "Google Sheets Integration",
+      "description": "Configure the Google Sheets integration to store user results.",
+      "scriptUrlLabel": "Google Apps Script URL",
+      "scriptUrlHelp": "Enter the URL of your Google Apps Script web app deployment.",
+      "secretTokenLabel": "Secret Token (Optional)",
+      "secretTokenPlaceholder": "Enter a secret token for API validation",
+      "secretTokenHelp": "This token will be sent with requests to verify they are coming from your app.",
+      "saveButton": "Save Configuration",
+      "invalidUrl": "Please enter a valid Google Apps Script URL",
+      "saveSuccess": "Google Sheets configuration updated successfully"
+    },
+    "userResults": {
+      "title": "User Results",
+      "description": "View and export all user assessment results.",
+      "exportButton": "Export CSV",
+      "headers": {
+        "userName": "User Name",
+        "userEmail": "Email",
+        "date": "Date",
+        "dominance": "D",
+        "influence": "I",
+        "steadiness": "S",
+        "compliance": "C",
+        "actions": "Actions"
+      },
+      "noResults": "No results found.",
+      "viewDetails": "View Details"
+    },
+    "tips": {
+      "title": "Tips",
+      "deployAsWebApp": "Remember to deploy your Google Apps Script as a web app accessible to 'Anyone, even anonymous' and set the script to run as 'Me'."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "test": "Take Test",
+    "results": "Results",
+    "history": "History",
+    "admin": "Admin",
+    "account": "Account"
+  },
+  "common": {
+    "loading": "Loading...",
+    "saving": "Saving...",
+    "success": "Success!",
+    "error": "Error!",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "more": "More",
+    "less": "Less"
+  },
   "errors": {
     "language_unavailable": "Language resources unavailable. Defaulting to English.",
     "loading_failed": "Failed to load content. Please try again."

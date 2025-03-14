@@ -22,7 +22,7 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { currentUser, isAuthenticated, logout } = useAuth();
+  const { currentUser, isAuthenticated, isAdmin, logout } = useAuth();
   const navigate = useNavigate();
   
   const toggleTheme = () => {
@@ -66,6 +66,11 @@ const Navbar = () => {
                   {t('nav.history')}
                 </Link>
               )}
+              {isAdmin && (
+                <Link to="/admin" className="text-sm font-medium transition-colors hover:text-primary">
+                  {t('nav.admin')}
+                </Link>
+              )}
             </nav>
             
             <div className="flex-1 flex items-center justify-end space-x-2">
@@ -101,10 +106,12 @@ const Navbar = () => {
                       <History className="mr-2 h-4 w-4" />
                       {t('nav.history')}
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => navigate('/admin')}>
-                      <Settings className="mr-2 h-4 w-4" />
-                      {t('nav.admin')}
-                    </DropdownMenuItem>
+                    {isAdmin && (
+                      <DropdownMenuItem onClick={() => navigate('/admin')}>
+                        <Settings className="mr-2 h-4 w-4" />
+                        {t('nav.admin')}
+                      </DropdownMenuItem>
+                    )}
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={handleLogout}>
                       <LogOut className="mr-2 h-4 w-4" />
@@ -158,6 +165,15 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('nav.history')}
+              </Link>
+            )}
+            {isAdmin && (
+              <Link 
+                to="/admin" 
+                className="px-3 py-2 rounded-md hover:bg-muted transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('nav.admin')}
               </Link>
             )}
             <div className="flex items-center justify-between pt-2 border-t">

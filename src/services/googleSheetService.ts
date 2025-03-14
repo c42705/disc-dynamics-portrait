@@ -27,6 +27,12 @@ const getSheetConfig = (): SheetConfig => {
   };
 };
 
+// Validate Google Script URL format
+export const validateScriptUrl = (url: string): boolean => {
+  const regex = /https:\/\/script\.google\.com\/.*/;
+  return regex.test(url);
+};
+
 // Save DISC test results to the configured Google Sheet
 export const saveResultsToGoogleSheet = async (
   userId: string, 
@@ -90,7 +96,7 @@ export const saveResultsToGoogleSheet = async (
 export const saveSheetConfiguration = (scriptUrl: string, secretToken?: string): boolean => {
   try {
     // Validate the URL format (basic check for Google Sheets URL)
-    if (!scriptUrl.includes('script.google.com/macros')) {
+    if (!validateScriptUrl(scriptUrl)) {
       toast.error('URL must be a valid Google Script URL');
       return false;
     }

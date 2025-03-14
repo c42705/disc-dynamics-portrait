@@ -110,6 +110,114 @@
     "en": "Inglés",
     "es": "Español"
   },
+  "auth": {
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión",
+    "register": "Registrarse",
+    "email": "Correo Electrónico",
+    "emailPlaceholder": "Ingresa tu correo electrónico",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Ingresa tu contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "confirmPasswordPlaceholder": "Confirma tu contraseña",
+    "name": "Nombre",
+    "namePlaceholder": "Ingresa tu nombre completo",
+    "loginOrRegister": "Iniciar Sesión / Registrarse",
+    "welcomeTitle": "Bienvenido a la Evaluación DISC",
+    "welcomeDescription": "Inicia sesión o crea una cuenta para guardar tus resultados y acceder a ellos en cualquier momento.",
+    "noAccount": "¿No tienes una cuenta?",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "validation": {
+      "allFieldsRequired": "Todos los campos son obligatorios",
+      "passwordsDoNotMatch": "Las contraseñas no coinciden",
+      "invalidEmail": "Por favor ingresa un correo electrónico válido",
+      "weakPassword": "La contraseña debe tener al menos 6 caracteres"
+    },
+    "account": "Cuenta"
+  },
+  "history": {
+    "title": "Tu Historial de Evaluaciones",
+    "subtitle": "Ver y comparar tus evaluaciones DISC anteriores",
+    "noResults": "Aún no has realizado ninguna evaluación.",
+    "takeTestButton": "Realizar una Evaluación",
+    "date": "Fecha",
+    "headers": {
+      "date": "Fecha",
+      "dominance": "Dominancia",
+      "influence": "Influencia",
+      "steadiness": "Estabilidad",
+      "compliance": "Conformidad",
+      "actions": "Acciones"
+    },
+    "viewDetails": "Ver Detalles",
+    "downloadCertificate": "Descargar Certificado",
+    "deleteResult": "Eliminar",
+    "confirmDelete": "¿Estás seguro de que deseas eliminar este resultado?",
+    "deleteSuccess": "Resultado eliminado exitosamente"
+  },
+  "admin": {
+    "title": "Panel de Administración",
+    "subtitle": "Administrar configuración del sistema y ver datos de usuarios",
+    "accessDenied": "Acceso Denegado. Esta página solo está disponible para administradores.",
+    "googleSheet": {
+      "title": "Integración con Google Sheets",
+      "description": "Configura la integración con Google Sheets para almacenar los resultados de los usuarios.",
+      "scriptUrlLabel": "URL del Script de Google Apps",
+      "scriptUrlHelp": "Ingresa la URL de tu implementación de Google Apps Script como aplicación web.",
+      "secretTokenLabel": "Token Secreto (Opcional)",
+      "secretTokenPlaceholder": "Ingresa un token secreto para validación de API",
+      "secretTokenHelp": "Este token se enviará con las solicitudes para verificar que provienen de tu aplicación.",
+      "saveButton": "Guardar Configuración",
+      "invalidUrl": "Por favor ingresa una URL válida de Google Apps Script",
+      "saveSuccess": "Configuración de Google Sheets actualizada exitosamente"
+    },
+    "userResults": {
+      "title": "Resultados de Usuarios",
+      "description": "Ver y exportar todos los resultados de evaluaciones de usuarios.",
+      "exportButton": "Exportar CSV",
+      "headers": {
+        "userName": "Nombre de Usuario",
+        "userEmail": "Correo Electrónico",
+        "date": "Fecha",
+        "dominance": "D",
+        "influence": "I",
+        "steadiness": "S",
+        "compliance": "C",
+        "actions": "Acciones"
+      },
+      "noResults": "No se encontraron resultados.",
+      "viewDetails": "Ver Detalles"
+    },
+    "tips": {
+      "title": "Consejos",
+      "deployAsWebApp": "Recuerda implementar tu Google Apps Script como una aplicación web accesible para 'Cualquiera, incluso anónimo' y configurar el script para que se ejecute como 'Yo'."
+    }
+  },
+  "nav": {
+    "home": "Inicio",
+    "test": "Realizar Prueba",
+    "results": "Resultados",
+    "history": "Historial",
+    "admin": "Administración",
+    "account": "Cuenta"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "saving": "Guardando...",
+    "success": "¡Éxito!",
+    "error": "¡Error!",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "save": "Guardar",
+    "close": "Cerrar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "more": "Más",
+    "less": "Menos"
+  },
   "errors": {
     "language_unavailable": "Recursos de idioma no disponibles. Usando inglés por defecto.",
     "loading_failed": "Error al cargar el contenido. Por favor intenta de nuevo."

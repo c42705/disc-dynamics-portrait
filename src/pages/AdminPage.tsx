@@ -8,20 +8,29 @@ import { useAuth } from '@/contexts/AuthContext';
 import { saveSheetConfiguration } from '@/services/googleSheetService';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { AlertCircle, Save } from 'lucide-react';
 
 const AdminPage = () => {
   const { t } = useLanguage();
-  const { currentUser, isAuthenticated } = useAuth();
+  const { currentUser, isAuthenticated, isAdmin } = useAuth();
   const navigate = useNavigate();
   
   const [scriptUrl, setScriptUrl] = useState('');
   const [secretToken, setSecretToken] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [urlError, setUrlError] = useState('');
   
   useEffect(() => {
-    // Check if user is authenticated, if not redirect to home
+    // Check if user is authenticated and is admin
     if (!isAuthenticated) {
-      toast.error('You must be logged in to access admin settings');
+      toast.error(t('admin.accessDenied'));
+      navigate('/');
+      return;
+    }
+    
+    if (!isAdmin) {
+      toast.error(t('admin.accessDenied'));
       navigate('/');
       return;
     }
@@ -37,24 +46,51 @@ const AdminPage = () => {
     } catch (error) {
       console.error('Error loading Google Sheet configuration:', error);
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, isAdmin, navigate, t]);
+  
+  const validateUrl = (url: string): boolean => {
+    // Basic validation for Google Apps Script URL
+    const regex = /https:\/\/script\.google\.com\/.*/;
+    return regex.test(url);
+  };
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setUrlError('');
+    
+    if (!validateUrl(scriptUrl)) {
+      setUrlError(t('admin.googleSheet.invalidUrl'));
+      return;
+    }
+    
     setIsLoading(true);
     
     try {
       const success = saveSheetConfiguration(scriptUrl, secretToken);
       if (success) {
-        toast.success('Configuration saved successfully');
+        toast.success(t('admin.googleSheet.saveSuccess'));
       }
     } catch (error) {
       console.error('Error saving configuration:', error);
-      toast.error('Failed to save configuration');
+      toast.error(t('common.error'));
     } finally {
       setIsLoading(false);
     }
   };
+  
+  // If not admin, show access denied
+  if (!isAdmin) {
+    return (
+      <div className="container max-w-2xl mx-auto px-4 py-10">
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>
+            {t('admin.accessDenied')}
+          </AlertDescription>
+        </Alert>
+      </div>
+    );
+  }
   
   return (
     <div className="container max-w-2xl mx-auto px-4 py-10">
@@ -78,10 +114,19 @@ const AdminPage = () => {
                 id="scriptUrl"
                 type="url"
                 value={scriptUrl}
-                onChange={(e) => setScriptUrl(e.target.value)}
+                onChange={(e) => {
+                  setScriptUrl(e.target.value);
+                  setUrlError('');
+                }}
                 placeholder="https://script.google.com/macros/s/your-script-id/exec"
                 required
+                className={urlError ? "border-red-500" : ""}
               />
+              {urlError && (
+                <p className="text-sm text-red-500">
+                  {urlError}
+                </p>
+              )}
               <p className="text-sm text-muted-foreground">
                 {t('admin.googleSheet.scriptUrlHelp')}
               </p>
@@ -104,7 +149,17 @@ const AdminPage = () => {
             </div>
             
             <Button type="submit" disabled={isLoading} className="w-full">
-              {isLoading ? t('common.saving') : t('admin.googleSheet.saveButton')}
+              {isLoading ? (
+                <span className="flex items-center">
+                  <span className="animate-spin mr-2">⏳</span>
+                  {t('common.saving')}
+                </span>
+              ) : (
+                <span className="flex items-center">
+                  <Save className="mr-2 h-4 w-4" />
+                  {t('admin.googleSheet.saveButton')}
+                </span>
+              )}
             </Button>
           </form>
         </CardContent>
@@ -112,7 +167,7 @@ const AdminPage = () => {
           <p>
             <strong>{t('admin.tips.title')}:</strong> {t('admin.tips.deployAsWebApp')}
           </p>
-          <code className="bg-muted p-2 rounded text-xs w-full">
+          <code className="bg-muted p-2 rounded text-xs w-full overflow-x-auto">
             {`function doPost(e) {
   const data = JSON.parse(e.postData.contents);
   const sheet = SpreadsheetApp.openById('YOUR_SHEET_ID').getActiveSheet();
