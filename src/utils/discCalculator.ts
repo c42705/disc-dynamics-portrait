@@ -81,16 +81,80 @@ const getComplianceDescription = (score: number): string => {
   return 'Preference for informal approaches and spontaneous decisions';
 };
 
-// Rest of the file remains the same as your original implementation
-export const getDiscQuestions = (): { questions: Question[], answers: Answer[] } => {
-  // ... (same as original)
-};
-
+// Define the Question interface
 export interface Question {
   id: number;
   text: string;
 }
 
+// Function to get DISC questions and initialize answers
+export const getDiscQuestions = (): { questions: Question[], answers: Answer[] } => {
+  const questions: Question[] = [
+    { id: 1, text: 'I am assertive, demanding, and decisive.' },
+    { id: 2, text: 'I enjoy doing multiple tasks at once.' },
+    { id: 3, text: 'I thrive in a challenge-based environment.' },
+    { id: 4, text: 'I think about tasks more than others or myself.' },
+    { id: 5, text: 'I am motivated by accomplishment and authority.' },
+    
+    { id: 6, text: 'I enjoy influencing others to achieve goals.' },
+    { id: 7, text: 'I am optimistic about others.' },
+    { id: 8, text: 'I prefer to collaborate rather than work alone.' },
+    { id: 9, text: 'I use gestures and animated expressions when I communicate.' },
+    { id: 10, text: 'I am interested in developing personal connections.' },
+    
+    { id: 11, text: 'I appreciate predictable situations and environments.' },
+    { id: 12, text: 'I listen more than I speak.' },
+    { id: 13, text: 'I am patient and supportive of others.' },
+    { id: 14, text: 'I prefer to focus on one task until completion.' },
+    { id: 15, text: 'I strive for stability and harmony in groups.' },
+    
+    { id: 16, text: 'I prefer clear rules and instructions to follow.' },
+    { id: 17, text: 'I pay careful attention to details and precision.' },
+    { id: 18, text: 'I make decisions based on facts and evidence.' },
+    { id: 19, text: 'I prefer to work with existing processes rather than creating new ones.' },
+    { id: 20, text: 'I analyze situations before making decisions.' }
+  ];
+  
+  // Create initial answers array (all set to 0 value initially)
+  const answers: Answer[] = [
+    // Dominance questions
+    { id: 1, type: 'D', value: 0 },
+    { id: 2, type: 'D', value: 0 },
+    { id: 3, type: 'D', value: 0 },
+    { id: 4, type: 'D', value: 0 },
+    { id: 5, type: 'D', value: 0 },
+    
+    // Influence questions
+    { id: 6, type: 'I', value: 0 },
+    { id: 7, type: 'I', value: 0 },
+    { id: 8, type: 'I', value: 0 },
+    { id: 9, type: 'I', value: 0 },
+    { id: 10, type: 'I', value: 0 },
+    
+    // Steadiness questions
+    { id: 11, type: 'S', value: 0 },
+    { id: 12, type: 'S', value: 0 },
+    { id: 13, type: 'S', value: 0 },
+    { id: 14, type: 'S', value: 0 },
+    { id: 15, type: 'S', value: 0 },
+    
+    // Compliance questions
+    { id: 16, type: 'C', value: 0 },
+    { id: 17, type: 'C', value: 0 },
+    { id: 18, type: 'C', value: 0 },
+    { id: 19, type: 'C', value: 0 },
+    { id: 20, type: 'C', value: 0 }
+  ];
+  
+  return { questions, answers };
+};
+
+// Function to get test options
 export const getTestOptions = (): { value: number; label: string }[] => {
-  // ... (same as original)
+  return [
+    { value: 1, label: 'Strongly Disagree' },
+    { value: 2, label: 'Disagree' },
+    { value: 3, label: 'Agree' },
+    { value: 4, label: 'Strongly Agree' }
+  ];
 };
