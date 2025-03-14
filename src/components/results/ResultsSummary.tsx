@@ -1,7 +1,7 @@
-
 import { DiscScore, RelationshipInsight } from '@/types/disc';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
+import ProfileChart from './ProfileChart';
 
 interface ResultsSummaryProps {
   userName: string;
