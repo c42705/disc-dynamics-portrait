@@ -118,32 +118,32 @@ export const getDiscQuestions = (): { questions: Question[], answers: Answer[] }
   // Create initial answers array (all set to 0 value initially)
   const answers: Answer[] = [
     // Dominance questions
-    { id: 1, type: 'D', value: 0 },
-    { id: 2, type: 'D', value: 0 },
-    { id: 3, type: 'D', value: 0 },
-    { id: 4, type: 'D', value: 0 },
-    { id: 5, type: 'D', value: 0 },
+    { questionId: 1, type: 'D', value: 0 },
+    { questionId: 2, type: 'D', value: 0 },
+    { questionId: 3, type: 'D', value: 0 },
+    { questionId: 4, type: 'D', value: 0 },
+    { questionId: 5, type: 'D', value: 0 },
     
     // Influence questions
-    { id: 6, type: 'I', value: 0 },
-    { id: 7, type: 'I', value: 0 },
-    { id: 8, type: 'I', value: 0 },
-    { id: 9, type: 'I', value: 0 },
-    { id: 10, type: 'I', value: 0 },
+    { questionId: 6, type: 'I', value: 0 },
+    { questionId: 7, type: 'I', value: 0 },
+    { questionId: 8, type: 'I', value: 0 },
+    { questionId: 9, type: 'I', value: 0 },
+    { questionId: 10, type: 'I', value: 0 },
     
     // Steadiness questions
-    { id: 11, type: 'S', value: 0 },
-    { id: 12, type: 'S', value: 0 },
-    { id: 13, type: 'S', value: 0 },
-    { id: 14, type: 'S', value: 0 },
-    { id: 15, type: 'S', value: 0 },
+    { questionId: 11, type: 'S', value: 0 },
+    { questionId: 12, type: 'S', value: 0 },
+    { questionId: 13, type: 'S', value: 0 },
+    { questionId: 14, type: 'S', value: 0 },
+    { questionId: 15, type: 'S', value: 0 },
     
     // Compliance questions
-    { id: 16, type: 'C', value: 0 },
-    { id: 17, type: 'C', value: 0 },
-    { id: 18, type: 'C', value: 0 },
-    { id: 19, type: 'C', value: 0 },
-    { id: 20, type: 'C', value: 0 }
+    { questionId: 16, type: 'C', value: 0 },
+    { questionId: 17, type: 'C', value: 0 },
+    { questionId: 18, type: 'C', value: 0 },
+    { questionId: 19, type: 'C', value: 0 },
+    { questionId: 20, type: 'C', value: 0 }
   ];
   
   return { questions, answers };
