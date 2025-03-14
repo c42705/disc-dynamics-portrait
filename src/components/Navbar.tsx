@@ -5,7 +5,7 @@ import { Moon, Sun, Menu, X, History, Settings, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
-import { useMobile } from '@/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 import AuthDialog from './auth/AuthDialog';
 import { useAuth } from '@/contexts/AuthContext';
 import {
@@ -20,7 +20,7 @@ import {
 const Navbar = () => {
   const { language, changeLanguage, t } = useLanguage();
   const { theme, setTheme } = useTheme();
-  const { isMobile } = useMobile();
+  const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { currentUser, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
