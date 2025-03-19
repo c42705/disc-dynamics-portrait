@@ -30,13 +30,6 @@ const Question = ({ question, options, selectedValue, onSelect, className }: Que
   const handleSelect = (value: number) => {
     setSelectedOption(value);
     onSelect(value);
-    
-    // Automatically advance to the next question after a slight delay
-    // This gives the user time to see their selection
-    setTimeout(() => {
-      // The actual navigation will happen in the parent component
-      // through the onSelect callback
-    }, 300);
   };
   
   // Translate option labels
