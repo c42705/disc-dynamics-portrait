@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Question as QuestionType, Answer, TestProgress } from '@/types/disc';
@@ -23,12 +22,10 @@ const TestPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Load or initialize questions
     const { questions: testQuestions, answers: initialAnswers } = getDiscQuestions();
     setQuestions(testQuestions);
     setAnswers(initialAnswers);
     
-    // Check for saved progress in localStorage
     const savedProgress = localStorage.getItem('discTestProgress');
     if (savedProgress) {
       try {
@@ -43,12 +40,10 @@ const TestPage = () => {
         }
       } catch (error) {
         console.error('Error loading saved progress:', error);
-        // Continue with fresh test if loading fails
       }
     }
   }, []);
 
-  // Save progress whenever it changes
   useEffect(() => {
     if (testStarted) {
       const progress: TestProgress = {
@@ -74,6 +69,14 @@ const TestPage = () => {
       value
     };
     setAnswers(updatedAnswers);
+    
+    setTimeout(() => {
+      if (currentQuestionIndex < questions.length - 1) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+      } else {
+        handleCompleteTest();
+      }
+    }, 500);
   };
 
   const handleNext = () => {
@@ -96,7 +99,6 @@ const TestPage = () => {
   };
 
   const handleCompleteTest = () => {
-    // Check all questions are answered
     const unansweredQuestions = answers.filter(a => a.value === 0);
     
     if (unansweredQuestions.length > 0) {
@@ -110,7 +112,6 @@ const TestPage = () => {
     
     toast.success(t('test.completion_message'));
     
-    // Navigate to results page
     navigate('/results');
   };
 
